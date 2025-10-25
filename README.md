@@ -9,7 +9,7 @@ This project implements a Blue/Green deployment strategy with automatic failover
 1. **Clone and setup**
 
    ```bash
-   git clone <repository>
+   git clone <https://github.com/gaiyadev/hng13-stage2-devops.git>
    cd project
    cp .env.example .env
 
