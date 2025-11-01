@@ -59,3 +59,16 @@ services:
       timeout: 3s
       retries: 2
       start_period: 10s
+
+  alert_watcher:
+    build:
+      context: ./watcher
+      dockerfile: Dockerfile
+    environment:
+      - BLUE_URL=http://app_blue:3000/healthz
+      - GREEN_URL=http://app_green:3000/healthz
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL}
+    depends_on:
+      - app_blue
+      - app_green
+    restart: unless-stopped
